@@ -1,0 +1,13 @@
+.direnv/*
+.devbox/*
+.task/*
+.venv
+.vscode
+result*
+dist/*
+*.pytest_cache
+*.egg-info
+.coverage
+*__pycache__
+runme.sh
+pdh.yaml

@@ -1,0 +1,55 @@
+[project]
+name = "dataperro"
+version = "0.1.0"
+description = "DataDog API CLI"
+authors = [
+    {name = "Manuel Bovo",email = "manuel.bovo@gmail.com"}
+]
+license.text = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.11,<4.0.0"
+dependencies = [
+    "typer (>=0.16.0,<0.17.0)",
+    "rich (>=14.1.0,<15.0.0)",
+    "datadog-api-client (>=2.41.0,<3.0.0)",
+    "textual (>=5.3.0,<6.0.0)"
+]
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.12.8"
+black = "^25.1.0"
+pytest = "^8.4.1"
+mypy = "^1.17.1"
+isort = "^6.0.1"
+pytest-cov = "^6.2.1"
+pytest-mock = "^3.14.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+dataperro = "dataperro.cli:app"
+
+[tool.black]
+line-length = 180
+
+[tool.flake8]
+max-line-length = 172
+ignore = "E203"
+
+[tool.ruff]
+select = [
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "C",  # flake8-comprehensions
+]
+line-length = 172
+# Allow unused variables when underscore-prefixed.
+ignore = [
+    "E501",
+    "C408", # Unnecessary dict call - rewrite as a literal.
+    "C901", # Function is too complex
+    "C416", # Unnecessary list comprehension
+]
